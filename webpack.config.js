@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -10,6 +11,7 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /node_modules/, loader: 'source-map-loader' },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -20,6 +22,10 @@ module.exports = {
           },
         },
       },
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+		},
     ],
   },
   resolve: {

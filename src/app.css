@@ -1,0 +1,11 @@
+﻿.imageBox {
+	display: inline-block;
+	position: relative;
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	vertical-align: middle;
+	cursor: point;
+	background-size: cover;
+	background-position: center center;
+}
